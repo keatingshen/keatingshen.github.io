@@ -3,484 +3,1506 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keating (沈杰) - Portfolio</title>
+    <meta name="description" content="Keating (沈杰) — Overseas Operations, Developer Relations & Content Creator specializing in AI technology ecosystems.">
+    <meta property="og:title" content="Keating — Overseas Operations / DevRel / Content Creator">
+    <meta property="og:description" content="Building developer ecosystems and driving global engagement for cutting-edge AI technology.">
+    <meta property="og:type" content="website">
+    <title>Keating (沈杰) — Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* ═══════════════════════════════════════════════════════════
+           RESET & CUSTOM PROPERTIES
+           ═══════════════════════════════════════════════════════════ */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
         :root {
-            --primary-color: #2563eb;
-            --text-color: #1f2937;
-            --bg-color: #f3f4f6;
-            --card-bg: #ffffff;
-            --btn-bg: #e5e7eb;
-            --btn-hover: #d1d5db;
+            --bg: #faf9f7;
+            --bg-warm: #f5f3ef;
+            --bg-card: #ffffff;
+            --bg-card-hover: #fdfcfa;
+            --border: rgba(26, 26, 26, 0.08);
+            --border-strong: rgba(26, 26, 26, 0.14);
+            --text-primary: #1a1a1a;
+            --text-secondary: #5c5c5c;
+            --text-muted: #9a9a9a;
+            --accent: #c4704b;
+            --accent-soft: rgba(196, 112, 75, 0.1);
+            --accent-blue: #5b7fa5;
+            --accent-blue-soft: rgba(91, 127, 165, 0.08);
+            --display: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --body: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --cn: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
         }
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+        html {
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: var(--border-strong) var(--bg);
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
+            font-family: var(--body);
+            font-size: 17px;
+            font-weight: 400;
+            background: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
         }
 
-        /* 语言控制核心逻辑 */
+        /* Chinese font override */
+        body.lang-zh {
+            font-family: var(--cn), var(--body);
+        }
+        body.lang-zh h1, body.lang-zh h2, body.lang-zh h3 {
+            font-family: var(--cn), var(--display);
+        }
+
+        /* ═══════════════════════════════════════════════════════════
+           BILINGUAL SYSTEM
+           ═══════════════════════════════════════════════════════════ */
         .zh { display: none; }
-        .en { display: inline-block; }
-        p.en, div.en, h1.en, h2.en, h3.en, h4.en, li.en { display: block; }
-        li span.en { display: inline; }
-
-        body.lang-zh .zh { display: inline-block; }
-        body.lang-zh p.zh, body.lang-zh div.zh, body.lang-zh h1.zh, body.lang-zh h2.zh, body.lang-zh h3.zh, body.lang-zh h4.zh, body.lang-zh li.zh { display: block; }
-        body.lang-zh li span.zh { display: inline; }
+        .en { display: unset; }
+        body.lang-zh .zh { display: unset; }
         body.lang-zh .en { display: none !important; }
+        p.en, div.en, h1.en, h2.en, h3.en, h4.en, li.en { display: block; }
+        span.en, strong.en { display: inline; }
+        body.lang-zh p.zh, body.lang-zh div.zh, body.lang-zh h1.zh, body.lang-zh h2.zh,
+        body.lang-zh h3.zh, body.lang-zh h4.zh, body.lang-zh li.zh { display: block; }
+        body.lang-zh span.zh, body.lang-zh strong.zh { display: inline; }
 
-        /* 导航栏样式 */
-        header {
-            background-color: var(--card-bg);
-            padding: 2rem 1rem;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: relative; 
-            z-index: 100;
-        }
-        
-        .header-content {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        header h1 {
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
+        /* ═══════════════════════════════════════════════════════════
+           SUBTLE BACKGROUND TEXTURE
+           ═══════════════════════════════════════════════════════════ */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 70% 50% at 80% 20%, rgba(196,112,75,0.025) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 60% at 20% 80%, rgba(91,127,165,0.02) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
         }
 
-        nav a {
-            margin: 0 1rem;
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            cursor: pointer;
-        }
-
-        nav a:hover {
-            color: var(--primary-color);
-        }
-
-        /* 语言切换下拉菜单样式 */
-        .lang-dropdown {
-            position: absolute;
+        /* ═══════════════════════════════════════════════════════════
+           NAVIGATION
+           ═══════════════════════════════════════════════════════════ */
+        .nav {
+            position: fixed;
             top: 0;
+            left: 0;
             right: 0;
-            display: inline-block;
-        }
-
-        .lang-icon-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-            color: var(--text-color);
+            z-index: 1000;
+            padding: 0 3rem;
+            height: 64px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: background-color 0.2s, color 0.2s;
+            justify-content: space-between;
+            background: rgba(250, 249, 247, 0.75);
+            backdrop-filter: blur(20px) saturate(1.2);
+            -webkit-backdrop-filter: blur(20px) saturate(1.2);
+            border-bottom: 1px solid transparent;
+            transition: all 0.5s ease;
         }
 
-        .lang-icon-btn:hover {
-            background-color: var(--btn-hover);
-            color: var(--primary-color);
+        .nav.scrolled {
+            border-bottom-color: var(--border);
+            background: rgba(250, 249, 247, 0.92);
+            box-shadow: 0 1px 12px rgba(0,0,0,0.04);
         }
 
-        .lang-menu {
-            display: none;
-            position: absolute;
-            right: 0;
-            top: 100%;
-            margin-top: 0.5rem;
-            background-color: var(--card-bg);
-            min-width: 100px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            border-radius: 8px;
-            z-index: 1000;
-            overflow: hidden;
-            border: 1px solid #e5e7eb;
-        }
-
-        .lang-menu.show {
-            display: block;
-        }
-
-        .lang-menu a {
-            display: block;
-            padding: 0.75rem 1rem;
-            margin: 0; 
+        .nav-name {
+            font-family: var(--display);
+            font-size: 1.35rem;
+            font-weight: 400;
+            color: var(--text-primary);
             text-decoration: none;
-            color: var(--text-color);
-            font-size: 0.95rem;
-            text-align: center;
-            transition: background-color 0.2s;
+            letter-spacing: -0.01em;
         }
 
-        .lang-menu a:hover {
-            background-color: var(--bg-color);
-            color: var(--primary-color);
+        body.lang-zh .nav-name {
+            font-family: var(--cn);
+            font-size: 1.2rem;
+            font-weight: 600;
         }
 
-        @media (max-width: 600px) {
-            .lang-dropdown {
-                position: relative;
-                top: auto;
-                right: auto;
-                margin-bottom: 1rem;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-            .lang-menu {
-                right: auto;
-                left: 50%;
-                transform: translateX(-50%);
-            }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            list-style: none;
         }
 
-        /* 基础布局 */
-        .container {
+        .nav-links a {
+            font-family: var(--body);
+            font-size: 0.88rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.4s var(--ease-out-expo);
+        }
+
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:hover::after { width: 100%; }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .lang-btn {
+            font-family: var(--body);
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            background: transparent;
+            border: 1px solid var(--border-strong);
+            border-radius: 20px;
+            padding: 5px 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+            letter-spacing: 0.02em;
+        }
+
+        .lang-btn:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            background: var(--accent-soft);
+        }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+        .hamburger span {
+            width: 20px; height: 1.5px;
+            background: var(--text-primary);
+            border-radius: 1px;
+            transition: all 0.3s;
+        }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 64px;
+            left: 0; right: 0; bottom: 0;
+            background: rgba(250, 249, 247, 0.97);
+            backdrop-filter: blur(30px);
+            z-index: 999;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2.5rem;
+        }
+
+        .mobile-menu.open { display: flex; }
+
+        .mobile-menu a {
+            font-family: var(--display);
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        body.lang-zh .mobile-menu a { font-family: var(--cn); font-weight: 600; }
+        .mobile-menu a:hover { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .nav { padding: 0 1.25rem; }
+        }
+
+        /* ═══════════════════════════════════════════════════════════
+           HERO SECTION
+           ═══════════════════════════════════════════════════════════ */
+        .hero {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 140px 3rem 100px;
             max-width: 1000px;
             margin: 0 auto;
-            padding: 2rem 1rem;
         }
 
-        section {
-            background-color: var(--card-bg);
+        .hero-eyebrow {
+            font-family: var(--body);
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
             margin-bottom: 2rem;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
-        section h2 {
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 0.5rem;
+        .hero-name {
+            font-family: var(--display);
+            font-size: clamp(4rem, 10vw, 7.5rem);
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
             margin-bottom: 1.5rem;
-            display: inline-block;
         }
 
-        .job {
-            margin-bottom: 1.5rem;
-            padding-left: 1rem;
-            border-left: 3px solid #e5e7eb;
+        body.lang-zh .hero-name {
+            font-family: var(--cn);
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 700;
+            letter-spacing: 0.05em;
         }
 
-        .job h3 {
-            margin-bottom: 0.2rem;
+        .hero-subtitle {
+            font-family: var(--body);
+            font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+            font-weight: 500;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            max-width: 580px;
         }
 
-        .job .date {
-            color: #6b7280;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .job ul {
-            padding-left: 1.2rem;
-        }
-        
-        .job li {
-            margin-bottom: 0.5rem;
+        body.lang-zh .hero-subtitle {
+            font-family: var(--cn);
+            font-style: normal;
+            font-weight: 400;
+            line-height: 1.8;
         }
 
-        /* 作品展示布局 */
-        .portfolio-category {
-            margin-bottom: 3rem;
+        .hero-desc {
+            max-width: 540px;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.9;
+            margin-bottom: 3.5rem;
         }
 
-        .portfolio-category h3 {
-            font-size: 1.3rem;
-            color: var(--text-color);
-            margin-bottom: 1.5rem;
-            border-left: 4px solid var(--primary-color);
-            padding-left: 0.8rem;
+        /* Stats */
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
         }
 
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            align-items: start; 
-        }
-
-        .portfolio-item {
-            background-color: transparent;
-            padding: 0;
+        .stat {
             display: flex;
             flex-direction: column;
         }
 
-        .portfolio-item h4 {
-            margin-bottom: 1rem;
-            font-size: 1.05rem;
-            color: var(--text-color);
-            border-left: 3px solid var(--btn-hover);
-            padding-left: 0.8rem;
+        .stat-number {
+            font-family: var(--display);
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 400;
+            color: var(--text-primary);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
         }
-        
-        .twitter-container {
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.4rem;
+            letter-spacing: 0.03em;
+        }
+
+        .stat-divider {
+            width: 1px;
+            background: var(--border-strong);
+            align-self: stretch;
+        }
+
+        /* Scroll indicator */
+        .scroll-hint {
+            position: absolute;
+            bottom: 3rem;
+            right: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 48px;
+            background: linear-gradient(to bottom, var(--border-strong), transparent);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(6px); }
+        }
+
+        @media (max-width: 600px) {
+            .hero { padding: 110px 1.5rem 80px; }
+            .hero-stats { gap: 1.5rem; }
+            .stat-divider { display: none; }
+            .scroll-hint { right: 1.5rem; }
+        }
+
+        /* ═══════════════════════════════════════════════════════════
+           SECTIONS
+           ═══════════════════════════════════════════════════════════ */
+        .section {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 100px 3rem;
+        }
+
+        .section-label {
+            font-family: var(--body);
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: var(--display);
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: var(--text-primary);
+            margin-bottom: 3.5rem;
+        }
+
+        body.lang-zh .section-title {
+            font-family: var(--cn);
+            font-weight: 600;
+        }
+
+        .sep {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            position: relative;
+            z-index: 1;
+        }
+        .sep-line {
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* ═══════════════════════════════════════════════════════════
+           EXPERIENCE — TIMELINE
+           ═══════════════════════════════════════════════════════════ */
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .exp-role {
+            font-family: var(--display);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        body.lang-zh .exp-role {
+            font-family: var(--cn);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .exp-date {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            letter-spacing: 0.02em;
+        }
+
+        .exp-intro {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            line-height: 1.85;
+        }
+
+        .exp-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .exp-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.4s var(--ease-out-expo);
+        }
+
+        .exp-card:hover {
+            border-color: var(--border-strong);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+        }
+
+        .exp-card-icon {
+            width: 36px; height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.2rem;
+        }
+
+        .exp-card-title {
+            font-family: var(--display);
+            font-size: 1.05rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        body.lang-zh .exp-card-title {
+            font-family: var(--cn);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .exp-card-text {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .exp-card-metric {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .metric-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metric-value {
+            font-family: var(--display);
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--accent);
+        }
+
+        .metric-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            letter-spacing: 0.03em;
+            margin-top: 0.15rem;
+        }
+
+        @media (max-width: 700px) {
+            .exp-grid { grid-template-columns: 1fr; }
+            .section { padding: 60px 1.5rem; }
+            .sep { padding: 0 1.5rem; }
+        }
+
+        /* ═══════════════════════════════════════════════════════════
+           PORTFOLIO
+           ═══════════════════════════════════════════════════════════ */
+        .portfolio-cat {
+            margin-bottom: 3.5rem;
+        }
+
+        .portfolio-cat-title {
+            font-family: var(--display);
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        body.lang-zh .portfolio-cat-title {
+            font-family: var(--cn);
+            font-weight: 600;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .portfolio-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.4s var(--ease-out-expo);
+        }
+
+        .portfolio-card:hover {
+            border-color: var(--border-strong);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.05);
+        }
+
+        .portfolio-card-top {
+            padding: 1.5rem 1.5rem 0;
+        }
+
+        .portfolio-tag {
+            display: inline-block;
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: var(--accent-soft);
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-bottom: 0.75rem;
+        }
+
+        .portfolio-title {
+            font-family: var(--display);
+            font-size: 1.05rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        body.lang-zh .portfolio-title {
+            font-family: var(--cn);
+            font-weight: 600;
+        }
+
+        .portfolio-body {
+            padding: 1rem 1.5rem 1.5rem;
+            min-height: 180px;
+        }
+
+        /* Tweet embed */
+        .tweet-embed {
             width: 100%;
-            overflow-x: hidden;
+            overflow: hidden;
             display: flex;
             justify-content: center;
         }
-        
-        .citation {
-            font-size: 0.8em;
-            color: #9ca3af;
+
+        .tweet-embed blockquote { margin: 0; }
+
+        /* Tweet fallback */
+        .tweet-fallback {
+            background: var(--bg-warm);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
         }
 
+        .tweet-fb-header {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .tweet-fb-avatar {
+            width: 34px; height: 34px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--body);
+            font-weight: 600;
+            font-size: 0.7rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .tweet-fb-name { font-size: 0.82rem; font-weight: 600; color: var(--text-primary); }
+        .tweet-fb-handle { font-size: 0.72rem; color: var(--text-muted); }
+
+        .tweet-fb-text {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        .tweet-fb-link {
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--accent);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: opacity 0.3s;
+        }
+
+        .tweet-fb-link:hover { opacity: 0.7; }
+
+        @media (max-width: 700px) {
+            .portfolio-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ═══════════════════════════════════════════════════════════
+           SKILLS
+           ═══════════════════════════════════════════════════════════ */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-group {
+            padding: 1.75rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: all 0.4s var(--ease-out-expo);
+        }
+
+        .skill-group:hover {
+            border-color: var(--border-strong);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 24px rgba(0,0,0,0.03);
+        }
+
+        .skill-group-title {
+            font-family: var(--display);
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        body.lang-zh .skill-group-title {
+            font-family: var(--cn);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .skill-tag {
+            font-size: 0.76rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            background: var(--bg-warm);
+            border: 1px solid var(--border);
+            padding: 4px 12px;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            background: var(--accent-soft);
+        }
+
+        /* ═══════════════════════════════════════════════════════════
+           CONTACT
+           ═══════════════════════════════════════════════════════════ */
+        .contact-section {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 80px 3rem 120px;
+        }
+
+        .contact-card {
+            background: var(--bg-warm);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 4rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent 10%, var(--accent), var(--accent-blue), transparent 90%);
+        }
+
+        .contact-title {
+            font-family: var(--display);
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        body.lang-zh .contact-title {
+            font-family: var(--cn);
+            font-weight: 600;
+        }
+
+        .contact-desc {
+            color: var(--text-secondary);
+            max-width: 460px;
+            margin: 0 auto 2.5rem;
+            font-size: 0.92rem;
+            line-height: 1.75;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .contact-link {
+            font-family: var(--body);
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            text-decoration: none;
+            background: var(--bg-card);
+            border: 1px solid var(--border-strong);
+            padding: 10px 22px;
+            border-radius: 24px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s var(--ease-out-expo);
+        }
+
+        .contact-link:hover {
+            background: var(--text-primary);
+            color: var(--bg);
+            border-color: var(--text-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(26,26,26,0.12);
+        }
+
+        .contact-link svg {
+            width: 16px; height: 16px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        @media (max-width: 600px) {
+            .contact-section { padding: 60px 1.5rem 100px; }
+            .contact-card { padding: 3rem 1.5rem; }
+        }
+
+        /* ═══════════════════════════════════════════════════════════
+           FOOTER
+           ═══════════════════════════════════════════════════════════ */
         footer {
+            position: relative;
+            z-index: 1;
             text-align: center;
             padding: 2rem;
-            color: #6b7280;
-            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-size: 0.78rem;
+            border-top: 1px solid var(--border);
+        }
+
+        /* ═══════════════════════════════════════════════════════════
+           SCROLL REVEAL
+           ═══════════════════════════════════════════════════════════ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-d1 { transition-delay: 0.1s; }
+        .reveal-d2 { transition-delay: 0.2s; }
+        .reveal-d3 { transition-delay: 0.3s; }
+        .reveal-d4 { transition-delay: 0.4s; }
+
+        /* Hero entrance */
+        .hero-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: heroFadeIn 1.1s var(--ease-out-expo) forwards;
+        }
+        .hero-in-2 { animation-delay: 0.12s; }
+        .hero-in-3 { animation-delay: 0.24s; }
+        .hero-in-4 { animation-delay: 0.36s; }
+        .hero-in-5 { animation-delay: 0.48s; }
+
+        @keyframes heroFadeIn {
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="header-content">
-            
-            <!-- 语言切换下拉菜单 -->
-            <div class="lang-dropdown">
-                <button class="lang-icon-btn" onclick="toggleDropdown()" title="Change Language">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <line x1="2" y1="12" x2="22" y2="12"></line>
-                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                    </svg>
-                </button>
-                <div class="lang-menu" id="langMenu">
-                    <a href="#" onclick="setLanguage('en'); return false;">English</a>
-                    <a href="#" onclick="setLanguage('zh'); return false;">中文</a>
+    <!-- ═══════════════ NAVIGATION ═══════════════ -->
+    <nav class="nav" id="navbar">
+        <a href="#" class="nav-name">
+            <span class="en">Keating</span><span class="zh">沈杰</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#about"><span class="en">About</span><span class="zh">关于</span></a></li>
+            <li><a href="#experience"><span class="en">Experience</span><span class="zh">经历</span></a></li>
+            <li><a href="#portfolio"><span class="en">Portfolio</span><span class="zh">作品</span></a></li>
+            <li><a href="#skills"><span class="en">Skills</span><span class="zh">技能</span></a></li>
+            <li><a href="#contact"><span class="en">Contact</span><span class="zh">联系</span></a></li>
+        </ul>
+        <div class="nav-right">
+            <button class="lang-btn" id="langToggle" onclick="toggleLang()">中文</button>
+            <button class="hamburger" id="hamburgerBtn" onclick="toggleMobile()">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#about" onclick="closeMobile()"><span class="en">About</span><span class="zh">关于</span></a>
+        <a href="#experience" onclick="closeMobile()"><span class="en">Experience</span><span class="zh">经历</span></a>
+        <a href="#portfolio" onclick="closeMobile()"><span class="en">Portfolio</span><span class="zh">作品</span></a>
+        <a href="#skills" onclick="closeMobile()"><span class="en">Skills</span><span class="zh">技能</span></a>
+        <a href="#contact" onclick="closeMobile()"><span class="en">Contact</span><span class="zh">联系</span></a>
+    </div>
+
+    <!-- ═══════════════ HERO ═══════════════ -->
+    <section class="hero" id="about">
+        <div class="hero-eyebrow hero-in">
+            <span class="en">Overseas Operations &middot; DevRel &middot; Content Creator</span>
+            <span class="zh">海外运营 &middot; 开发者关系 &middot; 内容创作者</span>
+        </div>
+
+        <h1 class="hero-name hero-in hero-in-2">
+            <span class="en">Keating</span><span class="zh">沈杰</span>
+        </h1>
+
+        <p class="hero-subtitle hero-in hero-in-3">
+            <span class="en">Building developer ecosystems and driving global engagement for cutting-edge AI technology</span>
+            <span class="zh">为前沿 AI 技术构建开发者生态，驱动全球化增长与社区连接</span>
+        </p>
+
+        <p class="hero-desc hero-in hero-in-4">
+            <span class="en">I specialize in overseas social media matrix growth, automated Discord community management, and AI-powered content creation — delivering complex technical models and application scenarios to a global audience through intuitive visual language and deep community engagement.</span>
+            <span class="zh">专注于海外社交媒体矩阵增长运营、Discord 社区自动化管理以及 AI 驱动的内容创作。致力于用直观的视觉语言和深度的社区互动，将复杂的技术模型与应用场景传递给全球受众。</span>
+        </p>
+
+        <div class="hero-stats hero-in hero-in-5">
+            <div class="stat">
+                <div class="stat-number" data-target="120" data-suffix="K+">0</div>
+                <div class="stat-label"><span class="en">Followers Gained</span><span class="zh">粉丝增长</span></div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+                <div class="stat-number" data-target="270" data-suffix="M">0</div>
+                <div class="stat-label"><span class="en">Total Impressions</span><span class="zh">总曝光</span></div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+                <div class="stat-number" data-target="410" data-suffix="+">0</div>
+                <div class="stat-label"><span class="en">Posts Published</span><span class="zh">发布内容</span></div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+                <div class="stat-number" data-target="20" data-suffix="+">0</div>
+                <div class="stat-label"><span class="en">Core KOLs</span><span class="zh">核心 KOL</span></div>
+            </div>
+        </div>
+
+        <div class="scroll-hint">
+            <span class="en">Scroll</span><span class="zh">下滑</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <div class="sep"><div class="sep-line"></div></div>
+
+    <!-- ═══════════════ EXPERIENCE ═══════════════ -->
+    <section class="section" id="experience">
+        <div class="reveal">
+            <div class="section-label">
+                <span class="en">Experience</span><span class="zh">工作经历</span>
+            </div>
+            <div class="section-title">
+                <span class="en">What I've Been Building</span>
+                <span class="zh">我在做什么</span>
+            </div>
+        </div>
+
+        <div class="reveal reveal-d1">
+            <div class="exp-header">
+                <div class="exp-role">
+                    <span class="en">Overseas Operations & Developer Ecosystem</span>
+                    <span class="zh">海外运营与开发者生态建设</span>
+                </div>
+                <div class="exp-date">
+                    <span class="en">Last 6 Months</span><span class="zh">最近 6 个月</span>
+                </div>
+            </div>
+            <p class="exp-intro">
+                <span class="en">Leading global social media operations, community automation, KOL partnerships, and event execution for AI model ecosystems.</span>
+                <span class="zh">主导 AI 模型生态的全球社媒运营、社区自动化、KOL 合作与活动执行。</span>
+            </p>
+        </div>
+
+        <div class="exp-grid">
+            <div class="exp-card reveal reveal-d1">
+                <div class="exp-card-icon" style="background: var(--accent-soft);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4z"/></svg>
+                </div>
+                <div class="exp-card-title">
+                    <span class="en">Social Media Matrix</span>
+                    <span class="zh">社媒矩阵运营</span>
+                </div>
+                <div class="exp-card-text">
+                    <span class="en">Led operations across X, YouTube, TikTok, and LinkedIn — covering model releases, community co-creation, demo presentations, and knowledge sharing.</span>
+                    <span class="zh">负责 X、YouTube、TikTok 和 LinkedIn 等平台运营，内容涵盖模型发布、社区共创、Demo 演示及知识分享。</span>
+                </div>
+                <div class="exp-card-metric">
+                    <div class="metric-item">
+                        <div class="metric-value">410+</div>
+                        <div class="metric-label"><span class="en">Posts</span><span class="zh">发帖</span></div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">120K+</div>
+                        <div class="metric-label"><span class="en">Followers</span><span class="zh">粉丝</span></div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">270M</div>
+                        <div class="metric-label"><span class="en">Impressions</span><span class="zh">曝光</span></div>
+                    </div>
                 </div>
             </div>
 
-            <h1 class="en">Keating</h1>
-            <h1 class="zh">沈杰</h1>
-            
-            <p class="en">Overseas Operations / DevRel / Content Creator</p>
-            <p class="zh">海外运营 / 开发者关系 / 内容创作者</p>
-            
-            <nav style="margin-top: 1rem;">
-                <a href="#about"><span class="en">About Me</span><span class="zh">个人简介</span></a>
-                <a href="#experience"><span class="en">Experience</span><span class="zh">工作内容</span></a>
-                <a href="#portfolio"><span class="en">Portfolio</span><span class="zh">作品展示</span></a>
-            </nav>
-        </div>
-    </header>
-
-    <div class="container">
-        
-        <!-- 个人简介 / About -->
-        <section id="about">
-            <h2 class="en">About Me</h2>
-            <h2 class="zh">个人简介</h2>
-            
-            <p class="en">Hello! I am an operations professional focused on the dissemination of cutting-edge AI technology and building developer ecosystems. I excel in overseas social media matrix growth and automated Discord community management. I am also passionate about using AI models for marketing materials and video creation. I am dedicated to using intuitive visual language and deep community interaction to deliver complex technical models and application scenarios to a global audience.</p>
-            <p class="zh">你好！我是一名专注于前沿 AI 技术传播与开发者生态建设的运营者。我擅长海外社交媒体矩阵的增长运营以及 Discord 社区的自动化管理。同时，我也热衷于运用 AI 模型进行营销物料与视频创作。我致力于用直观的视觉语言和深度的社区互动，将复杂的技术模型与应用场景传递给全球受众。</p>
-        </section>
-
-        <!-- 工作内容 / Experience -->
-        <section id="experience">
-            <h2 class="en">Experience</h2>
-            <h2 class="zh">工作内容</h2>
-            
-            <div class="job">
-                <h3 class="en">Overseas Operations & Developer Ecosystem Building</h3>
-                <h3 class="zh">海外运营与开发者关系生态建设</h3>
-                
-                <div class="date en">Last 6 Months</div>
-                <div class="date zh">最近 6 个月</div>
-                
-                <ul>
-                    <li class="en">
-                        <strong>Overseas Social Media Matrix Operations:</strong> Responsible for social media operations on platforms such as X (Tongyi Lab, Wan), YouTube, TikTok, and LinkedIn, covering model releases, community co-creation, model demo presentations, and knowledge sharing. Published 410 posts in 6 months, achieving over 120,000 follower growth, more than 16 million organic impressions, and nearly 270 million total impressions.
-                    </li>
-                    <li class="zh">
-                        <strong>海外社媒矩阵运营：</strong>负责 X (Tongyi Lab、Wan)、YouTube、TikTok 和 LinkedIn 等平台的社媒运营，内容涵盖模型发布、社区共创、模型 demo 演示及知识分享等。6 个月内累计发帖 410 篇，达成 12 万+的粉丝增长，斩获 1600 万+的自然流曝光和近 2.7 亿的总曝光。
-                    </li>
-
-                    <li class="en">
-                        <strong>Discord Community Management & Support:</strong> Introduced and configured Discord management bots, successfully implementing automated community operation workflows, including spam filtering and automated welcomes. Actively answered developer queries and established an issue-tracking mechanism to push complex technical or business issues to relevant product lines for resolution.
-                    </li>
-                    <li class="zh">
-                        <strong>Discord 社群管理与支持：</strong>引入并配置 Discord 管理机器人，成功落地社群自动化运营流程，实现垃圾消息屏蔽及自动化欢迎。积极解答开发者疑问，并建立问题对接机制，推动复杂技术或业务问题反馈至相关业务线解决。
-                    </li>
-
-                    <li class="en">
-                        <strong>Core KOL Outreach & Content Co-creation:</strong> Established connections with hundreds of core KOLs on the X platform and successfully guided over 20 high-value KOLs/KOCs into exclusive Discord groups for refined management. Collaborated with core technical creators to co-create content through tech teardowns and application case sharing, accumulating nearly 1 million views across overseas platforms.
-                    </li>
-                    <li class="zh">
-                        <strong>核心 KOL 建联与内容共创：</strong>在 X 平台累计与数百位核心 KOL 建立联系，并引导 20 余位高价值 KOL/KOC 加入专属 Discord 群聊，实现精细化运营。联合核心技术创作者通过技术拆解和应用案例分享开展内容共创，在海外平台累计获得近百万次浏览量。
-                    </li>
-
-                    <li class="en">
-                        <strong>Global Event Planning & Execution:</strong> Organized the online Qwen-Image-Lora training competition, attracting over 70 global participants and achieving more than 10 million impressions on overseas social media. Executed 4 Wan model-related challenges. Supported major offline events including the Shanghai let's vision exhibition, Nanjing Tech Meetup, Nanjing AI Talent Summit, and 510 Ali Day.
-                    </li>
-                    <li class="zh">
-                        <strong>海内外活动统筹策划：</strong>线上举办 Qwen-Image-Lora 训练赛，吸引海内外 70+ 人参加比赛，实现海外社媒 1000w+ 曝光。落地执行 Wan 模型相关挑战赛共 4 场。线下支持上海 let's vision 展会、南京搭友之夜、南京 AI 人才峰会及 510 阿里日等大型展会活动。
-                    </li>
-
-                    <li class="en">
-                        <strong>Marketing Materials & Localization:</strong> Independently completed the editing of nearly 10 promotional videos and designed over 20 marketing posters, supporting daily content updates across social media channels. Led the translation of core video materials during new model releases, ensuring the accuracy and timeliness of model launch communications.
-                    </li>
-                    <li class="zh">
-                        <strong>营销物料与模型本地化支持：</strong>独立完成近 10 支宣发视频的剪辑与 20 余张营销海报的设计，支撑各社媒渠道日常更新。在新模型发布节点，主导核心视频物料的翻译，保障了模型发布传播的准确性与时效性。
-                    </li>
-                </ul>
+            <div class="exp-card reveal reveal-d2">
+                <div class="exp-card-icon" style="background: var(--accent-blue-soft);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div class="exp-card-title">
+                    <span class="en">Community & KOL Network</span>
+                    <span class="zh">社区与 KOL 网络</span>
+                </div>
+                <div class="exp-card-text">
+                    <span class="en">Configured Discord bots for automated workflows. Built relationships with hundreds of KOLs and onboarded 20+ high-value KOLs/KOCs into exclusive groups.</span>
+                    <span class="zh">配置 Discord 管理机器人实现自动化运营。与数百位 KOL 建联，引导 20 余位高价值 KOL/KOC 加入专属群聊。</span>
+                </div>
             </div>
-        </section>
 
-        <!-- 作品展示 / Portfolio -->
-        <section id="portfolio">
-            <h2 class="en">Portfolio</h2>
-            <h2 class="zh">作品展示</h2>
+            <div class="exp-card reveal reveal-d3">
+                <div class="exp-card-icon" style="background: rgba(52,211,153,0.1);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <div class="exp-card-title">
+                    <span class="en">Global Events</span>
+                    <span class="zh">海内外活动统筹</span>
+                </div>
+                <div class="exp-card-text">
+                    <span class="en">Organized Qwen-Image-Lora training competition (70+ participants, 10M+ impressions). Executed 4 Wan model challenges. Supported Shanghai let's vision, Nanjing Tech Meetup, AI Talent Summit, and 510 Ali Day.</span>
+                    <span class="zh">举办 Qwen-Image-Lora 训练赛（70+ 参赛者，1000 万+ 曝光）。落地 4 场 Wan 模型挑战赛。线下支持上海 let's vision、南京搭友之夜、AI 人才峰会及 510 阿里日。</span>
+                </div>
+            </div>
 
-            <!-- AI科普视频 -->
-            <div class="portfolio-category">
-                <h3 class="en">AI Educational Videos</h3>
-                <h3 class="zh">AI科普视频</h3>
-                <div class="portfolio-grid">
-                    
-                    <div class="portfolio-item">
-                        <h4 class="en">LLM Education & Principle Analysis</h4>
-                        <h4 class="zh">大模型科普与原理解析</h4>
-                        <div class="twitter-container">
+            <div class="exp-card reveal reveal-d4">
+                <div class="exp-card-icon" style="background: rgba(168,85,247,0.08);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                </div>
+                <div class="exp-card-title">
+                    <span class="en">Content & Localization</span>
+                    <span class="zh">内容创作与本地化</span>
+                </div>
+                <div class="exp-card-text">
+                    <span class="en">Produced ~10 promo videos and 20+ posters. Led translation of core video assets during model launches, ensuring accuracy and timeliness of release communications.</span>
+                    <span class="zh">独立完成近 10 支宣发视频与 20 余张海报。主导模型发布节点的物料翻译，保障传播的准确性与时效性。</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="sep"><div class="sep-line"></div></div>
+
+    <!-- ═══════════════ PORTFOLIO ═══════════════ -->
+    <section class="section" id="portfolio">
+        <div class="reveal">
+            <div class="section-label">
+                <span class="en">Portfolio</span><span class="zh">作品展示</span>
+            </div>
+            <div class="section-title">
+                <span class="en">Selected Work</span>
+                <span class="zh">精选作品</span>
+            </div>
+        </div>
+
+        <!-- AI Educational Videos -->
+        <div class="portfolio-cat reveal">
+            <h3 class="portfolio-cat-title">
+                <span class="en">AI Educational Videos</span>
+                <span class="zh">AI 科普视频</span>
+            </h3>
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="portfolio-card-top">
+                        <span class="portfolio-tag"><span class="en">Education</span><span class="zh">科普</span></span>
+                        <div class="portfolio-title">
+                            <span class="en">LLM Education & Principle Analysis</span>
+                            <span class="zh">大模型科普与原理解析</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-body">
+                        <div class="tweet-embed">
                             <blockquote class="twitter-tweet" data-theme="light">
                                 <a href="https://twitter.com/Ali_TongyiLab/status/2062066623570419794"></a>
                             </blockquote>
                         </div>
+                        <div class="tweet-fallback" style="display:none;">
+                            <div class="tweet-fb-header">
+                                <div class="tweet-fb-avatar">TL</div>
+                                <div><div class="tweet-fb-name">Tongyi Lab</div><div class="tweet-fb-handle">@Ali_TongyiLab</div></div>
+                            </div>
+                            <div class="tweet-fb-text">
+                                <span class="en">Deep dive into LLM principles — making complex AI architecture accessible to a global audience.</span>
+                                <span class="zh">深入解析大模型原理——让复杂的 AI 架构触手可及。</span>
+                            </div>
+                            <a class="tweet-fb-link" href="https://twitter.com/Ali_TongyiLab/status/2062066623570419794" target="_blank" rel="noopener">
+                                <span class="en">View on X &rarr;</span><span class="zh">在 X 上查看 &rarr;</span>
+                            </a>
+                        </div>
                     </div>
+                </div>
 
-                    <div class="portfolio-item">
-                        <h4 class="en">AI Video Generation Showcase</h4>
-                        <h4 class="zh">AI 视频生成应用展示</h4>
-                        <div class="twitter-container">
+                <div class="portfolio-card">
+                    <div class="portfolio-card-top">
+                        <span class="portfolio-tag"><span class="en">Demo</span><span class="zh">演示</span></span>
+                        <div class="portfolio-title">
+                            <span class="en">AI Video Generation Showcase</span>
+                            <span class="zh">AI 视频生成应用展示</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-body">
+                        <div class="tweet-embed">
                             <blockquote class="twitter-tweet" data-theme="light">
                                 <a href="https://twitter.com/Ali_TongyiLab/status/2069619796245991553"></a>
                             </blockquote>
                         </div>
+                        <div class="tweet-fallback" style="display:none;">
+                            <div class="tweet-fb-header">
+                                <div class="tweet-fb-avatar">TL</div>
+                                <div><div class="tweet-fb-name">Tongyi Lab</div><div class="tweet-fb-handle">@Ali_TongyiLab</div></div>
+                            </div>
+                            <div class="tweet-fb-text">
+                                <span class="en">Showcasing AI video generation capabilities — from text to stunning visual narratives.</span>
+                                <span class="zh">展示 AI 视频生成能力——从文本到惊艳的视觉叙事。</span>
+                            </div>
+                            <a class="tweet-fb-link" href="https://twitter.com/Ali_TongyiLab/status/2069619796245991553" target="_blank" rel="noopener">
+                                <span class="en">View on X &rarr;</span><span class="zh">在 X 上查看 &rarr;</span>
+                            </a>
+                        </div>
                     </div>
-
                 </div>
             </div>
+        </div>
 
-            <!-- 社区&开发者内容挖掘 -->
-            <div class="portfolio-category">
-                <h3 class="en">Community & Developer Content Discovery</h3>
-                <h3 class="zh">社区&开发者内容挖掘</h3>
-                <div class="portfolio-grid">
-                    
-                    <div class="portfolio-item">
-                        <h4 class="en">Developer Co-creation: Expanding Application Scenarios</h4>
-                        <h4 class="zh">开发者共创案例：应用场景拓展</h4>
-                        <div class="twitter-container">
+        <!-- Community Content -->
+        <div class="portfolio-cat reveal">
+            <h3 class="portfolio-cat-title">
+                <span class="en">Community & Developer Content</span>
+                <span class="zh">社区 & 开发者内容</span>
+            </h3>
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="portfolio-card-top">
+                        <span class="portfolio-tag"><span class="en">Community</span><span class="zh">社区</span></span>
+                        <div class="portfolio-title">
+                            <span class="en">Developer Co-creation: Expanding Scenarios</span>
+                            <span class="zh">开发者共创：应用场景拓展</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-body">
+                        <div class="tweet-embed">
                             <blockquote class="twitter-tweet" data-theme="light">
                                 <a href="https://twitter.com/Ali_TongyiLab/status/2011259509516456302"></a>
                             </blockquote>
                         </div>
+                        <div class="tweet-fallback" style="display:none;">
+                            <div class="tweet-fb-header">
+                                <div class="tweet-fb-avatar">TL</div>
+                                <div><div class="tweet-fb-name">Tongyi Lab</div><div class="tweet-fb-handle">@Ali_TongyiLab</div></div>
+                            </div>
+                            <div class="tweet-fb-text">
+                                <span class="en">Highlighting developer co-creation stories — expanding real-world application scenarios.</span>
+                                <span class="zh">展示开发者共创案例——通过社区协作拓展真实应用场景。</span>
+                            </div>
+                            <a class="tweet-fb-link" href="https://twitter.com/Ali_TongyiLab/status/2011259509516456302" target="_blank" rel="noopener">
+                                <span class="en">View on X &rarr;</span><span class="zh">在 X 上查看 &rarr;</span>
+                            </a>
+                        </div>
                     </div>
+                </div>
 
-                    <!-- 这里是你新增的第二条社区推文 -->
-                    <div class="portfolio-item">
-                        <h4 class="en">Community Highlight: Developer Showcase</h4>
-                        <h4 class="zh">社区精选：开发者优秀案例</h4>
-                        <div class="twitter-container">
+                <div class="portfolio-card">
+                    <div class="portfolio-card-top">
+                        <span class="portfolio-tag"><span class="en">Showcase</span><span class="zh">精选</span></span>
+                        <div class="portfolio-title">
+                            <span class="en">Community Highlight: Developer Showcase</span>
+                            <span class="zh">社区精选：开发者优秀案例</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-body">
+                        <div class="tweet-embed">
                             <blockquote class="twitter-tweet" data-theme="light">
                                 <a href="https://twitter.com/Ali_TongyiLab/status/2067136712653037611"></a>
                             </blockquote>
                         </div>
+                        <div class="tweet-fallback" style="display:none;">
+                            <div class="tweet-fb-header">
+                                <div class="tweet-fb-avatar">TL</div>
+                                <div><div class="tweet-fb-name">Tongyi Lab</div><div class="tweet-fb-handle">@Ali_TongyiLab</div></div>
+                            </div>
+                            <div class="tweet-fb-text">
+                                <span class="en">Curated community highlights — celebrating outstanding developer projects.</span>
+                                <span class="zh">社区精选——展示优秀开发者项目与贡献。</span>
+                            </div>
+                            <a class="tweet-fb-link" href="https://twitter.com/Ali_TongyiLab/status/2067136712653037611" target="_blank" rel="noopener">
+                                <span class="en">View on X &rarr;</span><span class="zh">在 X 上查看 &rarr;</span>
+                            </a>
+                        </div>
                     </div>
-
                 </div>
             </div>
+        </div>
 
-            <!-- 模型发布 -->
-            <div class="portfolio-category">
-                <h3 class="en">Model Releases</h3>
-                <h3 class="zh">模型发布</h3>
-                <div class="portfolio-grid">
-                    
-                    <div class="portfolio-item">
-                        <h4 class="en">Latest Qwen Model Releases</h4>
-                        <h4 class="zh">Qwen 模型最新发布动态</h4>
-                        <div class="twitter-container">
+        <!-- Model Releases -->
+        <div class="portfolio-cat reveal">
+            <h3 class="portfolio-cat-title">
+                <span class="en">Model Releases</span>
+                <span class="zh">模型发布</span>
+            </h3>
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="portfolio-card-top">
+                        <span class="portfolio-tag"><span class="en">Release</span><span class="zh">发布</span></span>
+                        <div class="portfolio-title">
+                            <span class="en">Latest Qwen Model Launch</span>
+                            <span class="zh">Qwen 模型最新发布</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-body">
+                        <div class="tweet-embed">
                             <blockquote class="twitter-tweet" data-theme="light">
                                 <a href="https://twitter.com/Ali_TongyiLab/status/2026501615734468756"></a>
                             </blockquote>
                         </div>
+                        <div class="tweet-fallback" style="display:none;">
+                            <div class="tweet-fb-header">
+                                <div class="tweet-fb-avatar">TL</div>
+                                <div><div class="tweet-fb-name">Tongyi Lab</div><div class="tweet-fb-handle">@Ali_TongyiLab</div></div>
+                            </div>
+                            <div class="tweet-fb-text">
+                                <span class="en">Announcing the latest Qwen model — pushing the boundaries of open-source AI.</span>
+                                <span class="zh">发布最新 Qwen 模型——推动开源 AI 的边界。</span>
+                            </div>
+                            <a class="tweet-fb-link" href="https://twitter.com/Ali_TongyiLab/status/2026501615734468756" target="_blank" rel="noopener">
+                                <span class="en">View on X &rarr;</span><span class="zh">在 X 上查看 &rarr;</span>
+                            </a>
+                        </div>
                     </div>
+                </div>
 
-                    <div class="portfolio-item">
-                        <h4 class="en">Wan Model Core Feature Demo</h4>
-                        <h4 class="zh">Wan 模型核心功能展示</h4>
-                        <div class="twitter-container">
+                <div class="portfolio-card">
+                    <div class="portfolio-card-top">
+                        <span class="portfolio-tag"><span class="en">Demo</span><span class="zh">演示</span></span>
+                        <div class="portfolio-title">
+                            <span class="en">Wan Model Core Features</span>
+                            <span class="zh">Wan 模型核心功能展示</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-body">
+                        <div class="tweet-embed">
                             <blockquote class="twitter-tweet" data-theme="light">
                                 <a href="https://twitter.com/Alibaba_Wan/status/2040051865581469704"></a>
                             </blockquote>
                         </div>
+                        <div class="tweet-fallback" style="display:none;">
+                            <div class="tweet-fb-header">
+                                <div class="tweet-fb-avatar">W</div>
+                                <div><div class="tweet-fb-name">Wan</div><div class="tweet-fb-handle">@Alibaba_Wan</div></div>
+                            </div>
+                            <div class="tweet-fb-text">
+                                <span class="en">Wan model's core features — next-generation video generation technology.</span>
+                                <span class="zh">Wan 模型核心功能——新一代视频生成技术。</span>
+                            </div>
+                            <a class="tweet-fb-link" href="https://twitter.com/Alibaba_Wan/status/2040051865581469704" target="_blank" rel="noopener">
+                                <span class="en">View on X &rarr;</span><span class="zh">在 X 上查看 &rarr;</span>
+                            </a>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <div class="sep"><div class="sep-line"></div></div>
+
+    <!-- ═══════════════ SKILLS ═══════════════ -->
+    <section class="section" id="skills">
+        <div class="reveal">
+            <div class="section-label">
+                <span class="en">Skills & Tools</span><span class="zh">技能 & 工具</span>
+            </div>
+            <div class="section-title">
+                <span class="en">What I Work With</span>
+                <span class="zh">我的能力矩阵</span>
+            </div>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-group reveal reveal-d1">
+                <div class="skill-group-title">
+                    <span class="en">Social Media & Growth</span>
+                    <span class="zh">社媒运营 & 增长</span>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">X / Twitter</span>
+                    <span class="skill-tag">YouTube</span>
+                    <span class="skill-tag">TikTok</span>
+                    <span class="skill-tag">LinkedIn</span>
+                    <span class="skill-tag"><span class="en">Content Strategy</span><span class="zh">内容策略</span></span>
+                    <span class="skill-tag">Analytics</span>
                 </div>
             </div>
 
-        </section>
+            <div class="skill-group reveal reveal-d2">
+                <div class="skill-group-title">
+                    <span class="en">Community & DevRel</span>
+                    <span class="zh">社区 & 开发者关系</span>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag">Discord</span>
+                    <span class="skill-tag"><span class="en">KOL Outreach</span><span class="zh">KOL 建联</span></span>
+                    <span class="skill-tag"><span class="en">Event Planning</span><span class="zh">活动策划</span></span>
+                    <span class="skill-tag"><span class="en">Bot Automation</span><span class="zh">机器人自动化</span></span>
+                </div>
+            </div>
 
-    </div>
+            <div class="skill-group reveal reveal-d3">
+                <div class="skill-group-title">
+                    <span class="en">Content Creation</span>
+                    <span class="zh">内容创作</span>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag"><span class="en">Video Editing</span><span class="zh">视频剪辑</span></span>
+                    <span class="skill-tag"><span class="en">Poster Design</span><span class="zh">海报设计</span></span>
+                    <span class="skill-tag">AI Tools</span>
+                    <span class="skill-tag"><span class="en">Localization</span><span class="zh">本地化</span></span>
+                    <span class="skill-tag">Copywriting</span>
+                </div>
+            </div>
+
+            <div class="skill-group reveal reveal-d4">
+                <div class="skill-group-title">
+                    <span class="en">Languages</span>
+                    <span class="zh">语言能力</span>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag"><span class="en">Chinese (Native)</span><span class="zh">中文（母语）</span></span>
+                    <span class="skill-tag"><span class="en">English (Fluent)</span><span class="zh">英语（流利）</span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="sep"><div class="sep-line"></div></div>
+
+    <!-- ═══════════════ CONTACT ═══════════════ -->
+    <section class="contact-section" id="contact">
+        <div class="contact-card reveal">
+            <h2 class="contact-title">
+                <span class="en">Let's Connect</span>
+                <span class="zh">联系我</span>
+            </h2>
+            <p class="contact-desc">
+                <span class="en">Interested in collaboration, DevRel opportunities, or just want to chat about AI? I'd love to hear from you.</span>
+                <span class="zh">无论是合作洽谈、DevRel 机会还是聊聊 AI，欢迎随时联系。</span>
+            </p>
+            <div class="contact-links">
+                <a class="contact-link" href="tel:+8618715003501">
+                    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <span class="en">+86 187 1500 3501</span><span class="zh">+86 187 1500 3501</span>
+                </a>
+                <a class="contact-link" href="mailto:keating.jie@gmail.com">
+                    <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <span class="en">keating.jie@gmail.com</span><span class="zh">keating.jie@gmail.com</span>
+                </a>
+            </div>
+        </div>
+    </section>
 
     <footer>
-        <p class="en">&copy; 2026 Keating. All rights reserved.</p>
-        <p class="zh">&copy; 2026 沈杰. 保留所有权利.</p>
+        <p class="en">&copy; 2026 Keating. Crafted with intention.</p>
+        <p class="zh">&copy; 2026 沈杰</p>
     </footer>
 
-    <!-- Twitter 官方嵌入脚本 -->
+    <!-- Twitter Embed -->
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    
-    <!-- 语言切换脚本 -->
+
     <script>
-        // 展开/收起下拉菜单
-        function toggleDropdown() {
-            document.getElementById("langMenu").classList.toggle("show");
-        }
+    /* ═══════════════════════════════════════════════════════════
+       LANGUAGE TOGGLE
+       ═══════════════════════════════════════════════════════════ */
+    function toggleLang() {
+        const body = document.body;
+        const btn = document.getElementById('langToggle');
+        body.classList.toggle('lang-zh');
+        btn.textContent = body.classList.contains('lang-zh') ? 'English' : '中文';
+    }
 
-        // 设置语言并隐藏下拉菜单
-        function setLanguage(lang) {
-            const body = document.body;
-            if (lang === 'zh') {
-                body.classList.add('lang-zh');
-            } else {
-                body.classList.remove('lang-zh');
+    /* ═══════════════════════════════════════════════════════════
+       MOBILE MENU
+       ═══════════════════════════════════════════════════════════ */
+    function toggleMobile() {
+        document.getElementById('hamburgerBtn').classList.toggle('active');
+        document.getElementById('mobileMenu').classList.toggle('open');
+        document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('open') ? 'hidden' : '';
+    }
+
+    function closeMobile() {
+        document.getElementById('hamburgerBtn').classList.remove('active');
+        document.getElementById('mobileMenu').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       NAV SCROLL
+       ═══════════════════════════════════════════════════════════ */
+    window.addEventListener('scroll', () => {
+        const nav = document.getElementById('navbar');
+        nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    /* ═══════════════════════════════════════════════════════════
+       SCROLL REVEAL
+       ═══════════════════════════════════════════════════════════ */
+    const revealObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                revealObs.unobserve(e.target);
             }
-            document.getElementById("langMenu").classList.remove("show");
-        }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
 
-        // 点击页面其他区域时自动关闭下拉菜单
-        window.onclick = function(event) {
-            if (!event.target.closest('.lang-dropdown')) {
-                const dropdowns = document.getElementsByClassName("lang-menu");
-                for (let i = 0; i < dropdowns.length; i++) {
-                    let openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    /* ═══════════════════════════════════════════════════════════
+       STAT COUNTER
+       ═══════════════════════════════════════════════════════════ */
+    function animateCounters() {
+        document.querySelectorAll('.stat-number').forEach(el => {
+            const target = parseInt(el.dataset.target);
+            const suffix = el.dataset.suffix || '';
+            const duration = 2000;
+            const start = performance.now();
+
+            function tick(now) {
+                const p = Math.min((now - start) / duration, 1);
+                const eased = 1 - Math.pow(1 - p, 4);
+                el.textContent = Math.round(eased * target) + suffix;
+                if (p < 1) requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+        });
+    }
+
+    const statsObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                animateCounters();
+                statsObs.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    const statsEl = document.querySelector('.hero-stats');
+    if (statsEl) statsObs.observe(statsEl);
+
+    /* ═══════════════════════════════════════════════════════════
+       TWEET FALLBACK
+       ═══════════════════════════════════════════════════════════ */
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            document.querySelectorAll('.tweet-embed').forEach(c => {
+                if (!c.querySelector('iframe') && !c.querySelector('twitterwidget')) {
+                    const card = c.closest('.portfolio-body');
+                    if (card) {
+                        c.style.display = 'none';
+                        const fb = card.querySelector('.tweet-fallback');
+                        if (fb) fb.style.display = 'flex';
                     }
                 }
-            }
-        }
+            });
+        }, 5000);
+    });
     </script>
 </body>
 </html>
